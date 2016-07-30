@@ -334,7 +334,7 @@ Foo.prototype = { /* .. */ }; // create a new prototype object
 
 var a1 = new Foo();
 a1.constructor === Foo; // false!
-a1.constructor === Object; // true!
+a1.constructor === Object.constructor; // true!
 ```
 
 `Object(..)` didn't "construct" `a1` did it? It sure seems like `Foo()` "constructed" it. Many developers think of `Foo()` as doing the construction, but where everything falls apart is when you think "constructor" means "was constructed by", because by that reasoning, `a1.constructor` should be `Foo`, but it isn't!
